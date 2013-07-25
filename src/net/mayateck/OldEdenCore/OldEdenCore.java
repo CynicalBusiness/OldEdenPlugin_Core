@@ -1,7 +1,8 @@
 package net.mayateck.OldEdenCore;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
+import org.bukkit.command.*;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class OldEdenCore extends JavaPlugin{
@@ -41,5 +42,19 @@ public class OldEdenCore extends JavaPlugin{
 	public boolean onCommand(CommandSender s, Command cmd, String l, String[] args){
 		
 		return false;
+	}
+	
+	public void onPlayerJoin(PlayerJoinEvent evt){
+		Player player = evt.getPlayer();
+		String name = player.getName();
+		String r = HTTPGetData.getGeneralData("player.php", "get=setup&name="+name);
+		if (r=="true"){
+			player.sendMessage("Welcome back, "+name+".");
+		} else if(r=="false"){
+			player.sendMessage("Welcome to Old Eden "+name+"!");
+			// TODO: New Player handling.
+		} else {
+			player.sendMessage("Error while syncing. Please report this on github with the current time.");
+		}
 	}
 }
