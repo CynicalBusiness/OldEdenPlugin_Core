@@ -2,3 +2,9 @@ name: OldEdenPlugin_CORE
 main: net.mayateck.OldEdenCore.OldEdenCore
 version: 0.00.01
 
+commands:
+   money:
+      description: Old Eden Economy commands.
+      usage: /money <sub-command> <args>
+      permission: eden.money
+      permission-message: Permission Error: You do not have access to that command.
