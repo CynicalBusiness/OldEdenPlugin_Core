@@ -4,19 +4,19 @@ import java.io.*;
 import java.net.*;
 
 public class HTTPGetData {
-	private OldEdenCore plugin;
+	private static OldEdenCore plugin;
 	public HTTPGetData(OldEdenCore plugin) {
-		this.plugin = plugin;
+		HTTPGetData.plugin = plugin;
 	}
 	
-	public String getGeneralData(String filename, String args){
+	public static String getGeneralData(String filename, String args){
 		URL url;
 		HttpURLConnection conn;
 		BufferedReader rd;
 		String line;
 		String result = "";
 		try {
-	         url = new URL("http://services.mayateck.net/oldEden/"+filename+".php?"+args);
+	         url = new URL("http://services.mayateck.net/oldEden/"+filename+"?"+args);
 	         conn = (HttpURLConnection) url.openConnection();
 	         conn.setRequestMethod("GET");
 	         rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
