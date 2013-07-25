@@ -1,0 +1,4 @@
+name: OldEdenPlugin_CORE
+main: net.mayateck.OldEdenCore.OldEdenCore
+version: 0.00.01
+
