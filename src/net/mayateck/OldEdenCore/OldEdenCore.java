@@ -1,5 +1,6 @@
 package net.mayateck.OldEdenCore;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.*;
@@ -8,12 +9,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class OldEdenCore extends JavaPlugin{
 	public static String version = "0.00.01";
 	public static boolean isConn = false;
+	public static String head = ChatColor.DARK_GRAY+"||"+ChatColor.AQUA+"Core"+ChatColor.DARK_GRAY+"|| ";
 	
 	@Override
 	public void onEnable(){
 		getLogger().info("#======# Old Eden Core v"+version+" #======#");
 		getLogger().info("Initializing Command Data...");
 			getCommand("money").setExecutor(new EconomyHandler(this));
+			getCommand("alert").setExecutor(new AlertsHandler(this));
 		getLogger().info("Requesting response from database...");
 			String r = HTTPGetData.getGeneralData("general.php", "get=ping");
 			if (r=="true"){
