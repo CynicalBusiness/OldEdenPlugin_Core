@@ -1,5 +1,6 @@
 package net.mayateck.OldEdenCore;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,6 +22,16 @@ public class EconomyHandler implements CommandExecutor {
 				if (args.length==0){
 					String name = s.getName();
 					String funds = HTTPGetData.getGeneralData("econ.php", "get=fetch&name="+name);
+				} else {
+					if (args[0]=="admin"){
+						if (args.length==1){
+							s.sendMessage(OldEdenCore.head+ChatColor.RED+"Invalid parameter number. Usage: /money admin [args]");
+						} if (args[1]=="set"){
+							if (args.length==2 || args.length==3 || args.length>=5){
+								s.sendMessage(OldEdenCore.head+ChatColor.RED+"Invalid parameter number. Usage: /money admin set [player] [amount]");
+							} 
+						}
+					}
 				}
 			}
 		}
