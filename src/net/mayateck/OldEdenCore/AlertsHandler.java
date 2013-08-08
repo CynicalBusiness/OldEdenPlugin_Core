@@ -21,7 +21,7 @@ public class AlertsHandler implements CommandExecutor {
 	static String alertSys = ChatColor.DARK_GRAY+" || "+ChatColor.YELLOW+"SYSTEM"+ChatColor.DARK_GRAY+" || ";
 	static String alertNote = ChatColor.DARK_GRAY+" || "+ChatColor.WHITE+"NOTICE"+ChatColor.DARK_GRAY+" || ";
 	static String alertError = ChatColor.DARK_GRAY+" || "+ChatColor.RED+"ERROR"+ChatColor.DARK_GRAY+" || ";
-	static String alertBCast = ChatColor.DARK_GRAY+" || "+ChatColor.GOLD+"SYSTEM"+ChatColor.DARK_GRAY+" || ";
+	static String alertBCast = ChatColor.DARK_GRAY+" || "+ChatColor.DARK_AQUA+"BROADCAST"+ChatColor.DARK_GRAY+" || ";
 	
 	public boolean onCommand(CommandSender s, Command cmd, String l, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("alert")){
