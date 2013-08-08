@@ -22,6 +22,8 @@ public class EconomyHandler implements CommandExecutor {
 				if (args.length==0){
 					String name = s.getName();
 					String funds = HTTPGetData.getGeneralData("econ.php", "get=fetch&name="+name);
+					s.sendMessage(funds);
+					return true;
 				} else {
 					if (args[0]=="admin"){
 						if (args.length==1){
