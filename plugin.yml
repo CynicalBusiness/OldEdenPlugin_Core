@@ -16,8 +16,28 @@ commands:
    eden:
       description: Old Eden Core Commands.
       usage: /eden [subcommand] <args>
-      permission: eden
+      permission: eden.core
       permission-message: 'Permission Error: You do not have access to that command.'
 
 permissions:
-   
+   eden.*:
+      description: 'Gives full access to Old Eden commands.'
+      children:
+         eden.alert: op
+         eden.core: op
+         eden.eco: true
+   eden.alert:
+      description: 'Allows access for the user to send server alerts.'
+      children:
+         eden.alert.sys: false
+         eden.alert.note: op
+         eden.alert.bcast: op
+         eden.alert.err: false
+   eden.money:
+      description: 'Old Eden economy.'
+      children:
+         eden.eco.pay: true
+         eden.eco.set: op
+         eden.eco.add: op
+         eden.eco.check: op
+         eden.eco.subtract: op
