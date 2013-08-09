@@ -7,7 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class OldEdenCore extends JavaPlugin implements Listener{
-	public static String version = "0.01.02";
+	public static String version = "0.01.12";
 	public static boolean isConn = false;
 	public static String head = ChatColor.DARK_GRAY+" || "+ChatColor.AQUA+"PLUGIN"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
 	public static String serverHead = ChatColor.DARK_GRAY+" || "+ChatColor.GRAY+"SERVER"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
