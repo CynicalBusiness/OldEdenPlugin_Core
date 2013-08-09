@@ -1,5 +1,4 @@
 server:
-   version: '0.00.01'
    type: 'Alpha'
    phase: 1
    mode: 'FirstStrike'
