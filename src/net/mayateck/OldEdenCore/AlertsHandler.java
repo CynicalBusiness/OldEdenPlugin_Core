@@ -60,6 +60,12 @@ public class AlertsHandler implements CommandExecutor {
 					return true;
 				}
 			}
+		} else if (cmd.getName().equalsIgnoreCase("say") && s.hasPermission("eden.alert.sys")){
+			String message = "";
+			for (int i=1; i<=args.length-1; i++){
+				message = message+" "+args[i];
+			}
+			Bukkit.getServer().broadcastMessage(alertSys+message);
 		}
 		return false;
 	}
