@@ -37,20 +37,20 @@ public class AlertsHandler implements CommandExecutor {
 				char amp = '&';
 				message = ChatColor.translateAlternateColorCodes(amp, message);
 				message = ChatColor.RESET+message;
-				if(args[0].equalsIgnoreCase("system")) {
+				if(args[0].equalsIgnoreCase("system") && s.hasPermission("eden.alert.sys")) {
 					message = alertSys+message;
 					doAlert = true;
-				} else if (args[0].equalsIgnoreCase("notice")){
+				} else if (args[0].equalsIgnoreCase("notice") && s.hasPermission("eden.alert.note")){
 					message = alertNote+message;
 					doAlert = true;
-				} else if (args[0].equalsIgnoreCase("error")){
+				} else if (args[0].equalsIgnoreCase("error") && s.hasPermission("eden.alert.err")){
 					message = alertError+message;
 					doAlert = true;
-				} else if (args[0].equalsIgnoreCase("broadcast")){
+				} else if (args[0].equalsIgnoreCase("broadcast") && s.hasPermission("eden.alert.bcast")){
 					message = alertBCast+message;
 					doAlert = true;
 				} else {
-					s.sendMessage(OldEdenCore.head+ChatColor.RED+"Invalid alert type.");
+					s.sendMessage(OldEdenCore.head+ChatColor.RED+"Invalid alert type or insufficient permission.");
 					s.sendMessage("alert."+args[0]+" "+message);
 					doAlert = true;
 					return true;

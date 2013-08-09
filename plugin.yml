@@ -13,6 +13,11 @@ commands:
       usage: /alert [type] [message]
       permission: eden.alert
       permission-message: 'Permission Error: You do not have access to that command.'
+   eden:
+      description: Old Eden Core Commands.
+      usage: /eden [subcommand] <args>
+      permission: eden
+      permission-message: 'Permission Error: You do not have access to that command.'
 
 permissions:
    
