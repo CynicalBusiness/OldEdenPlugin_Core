@@ -18,10 +18,10 @@ public class AlertsHandler implements CommandExecutor {
 	}
 	
 	
-	static String alertSys = ChatColor.DARK_GRAY+" || "+ChatColor.YELLOW+"SYSTEM"+ChatColor.DARK_GRAY+" || ";
-	static String alertNote = ChatColor.DARK_GRAY+" || "+ChatColor.WHITE+"NOTICE"+ChatColor.DARK_GRAY+" || ";
-	static String alertError = ChatColor.DARK_GRAY+" || "+ChatColor.RED+"ERROR"+ChatColor.DARK_GRAY+" || ";
-	static String alertBCast = ChatColor.DARK_GRAY+" || "+ChatColor.DARK_AQUA+"BROADCAST"+ChatColor.DARK_GRAY+" || ";
+	static String alertSys = ChatColor.DARK_GRAY+" || "+ChatColor.YELLOW+"SYSTEM"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
+	static String alertNote = ChatColor.DARK_GRAY+" || "+ChatColor.WHITE+"NOTICE"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
+	static String alertError = ChatColor.DARK_GRAY+" || "+ChatColor.RED+"ERROR"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
+	static String alertBCast = ChatColor.DARK_GRAY+" || "+ChatColor.DARK_AQUA+"BROADCAST"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
 	
 	public boolean onCommand(CommandSender s, Command cmd, String l, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("alert")){
@@ -60,12 +60,6 @@ public class AlertsHandler implements CommandExecutor {
 					return true;
 				}
 			}
-		} else if (cmd.getName().equalsIgnoreCase("say") && s.hasPermission("eden.alert.sys")){
-			String message = "";
-			for (int i=1; i<=args.length-1; i++){
-				message = message+" "+args[i];
-			}
-			Bukkit.getServer().broadcastMessage(alertSys+message);
 		}
 		return false;
 	}
