@@ -6,7 +6,7 @@ commands:
    money:
       description: Old Eden Economy commands.
       usage: /money <sub-command> <args>
-      permission: eden.money
+      permission: eden.eco
       permission-message: 'Permission Error: You do not have access to that command.'
    alert:
       description: Old Eden Alerts.
@@ -17,6 +17,11 @@ commands:
       description: Old Eden Core Commands.
       usage: /eden [subcommand] <args>
       permission: eden.core
+      permission-message: 'Permission Error: You do not have access to that command.'
+   land:
+      description: Old Eden region commands.
+      usage: /land [subcommand] <args>
+      permission: eden.land
       permission-message: 'Permission Error: You do not have access to that command.'
 
 permissions:
@@ -33,11 +38,20 @@ permissions:
          eden.alert.note: op
          eden.alert.bcast: op
          eden.alert.err: false
-   eden.money:
+   eden.eco:
       description: 'Old Eden economy.'
       children:
          eden.eco.pay: true
          eden.eco.set: op
          eden.eco.add: op
-         eden.eco.check: op
+         eden.eco.check: true
+         eden.eco.checkother: op
          eden.eco.subtract: op
+   eden.land:
+      description: 'Region definition commands.'
+      children:
+         eden.land.create: op
+         eden.land.home: false
+         eden.land.sethome: op
+         eden.land.set: op
+         eden.land.hop: op
