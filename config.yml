@@ -4,6 +4,6 @@ server:
    mode: 'FirstStrike'
    loc: 'US'
    locnum: 1
-npcs:
+regions:
 
 players:
