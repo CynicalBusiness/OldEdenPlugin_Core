@@ -27,11 +27,8 @@ public class PlayerListener implements Listener{
 			player.sendMessage(OldEdenCore.serverHead+"Welcome to Old Eden!");
 			plugin.getLogger().info("PlayerData not found. Creating...");
 			player.sendMessage(OldEdenCore.serverHead+"Please wait while first-time setup is run.");
-			plugin.getConfig().createSection("players."+pname);
-			plugin.getConfig().createSection("players."+pname+".regionID");
-				plugin.getConfig().set("players"+pname+".regionID", 0);
-			plugin.getConfig().createSection("players."+pname+".funds");
-				plugin.getConfig().set("players"+pname+".funds", 0);
+			plugin.getConfig().set("players."+pname+".regionID", "none");
+			plugin.getConfig().set("players."+pname+".funds", 0);
 			plugin.saveConfig();
 			player.sendMessage(OldEdenCore.serverHead+"Complete! Welcome "+pname+"!");
 		}
