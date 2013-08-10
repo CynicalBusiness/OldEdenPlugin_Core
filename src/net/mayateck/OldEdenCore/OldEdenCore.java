@@ -7,7 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class OldEdenCore extends JavaPlugin implements Listener{
-	public static String version = "0.01.12";
+	public static String version = "0.02.05";
 	public static boolean isConn = false;
 	public static String head = ChatColor.DARK_GRAY+" || "+ChatColor.AQUA+"PLUGIN"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
 	public static String serverHead = ChatColor.DARK_GRAY+" || "+ChatColor.GRAY+"SERVER"+ChatColor.DARK_GRAY+" || "+ChatColor.RESET;
@@ -16,12 +16,13 @@ public class OldEdenCore extends JavaPlugin implements Listener{
 	@Override
 	public void onEnable(){
 		this.getLogger().info("#======# Old Eden Core v"+version+" #======#");
-		this.getLogger().info("Initializing Command Data...");
+		this.getLogger().info("Initializing Core Data...");
 			getCommand("money").setExecutor(new EconomyHandler(this));
 			getCommand("alert").setExecutor(new AlertsHandler(this));
-			
+			getCommand("land").setExecutor(new RegionCommandExecutor(this));
 			new PlayerListener(this);
 			new MessageBases(this);
+			new RegionHandler(this);
 		this.getLogger().info("Requesting response from configuration...");
 			this.saveDefaultConfig();
 		this.getLogger().info("Initialization complete.");
