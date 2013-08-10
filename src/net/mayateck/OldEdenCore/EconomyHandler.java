@@ -21,9 +21,14 @@ public class EconomyHandler implements CommandExecutor {
 				s.sendMessage("The economy commands are player-executible only.");
 			} else {
 				if (args.length==0){
-					int funds = plugin.getConfig().getInt("players."+name+".funds");
-					s.sendMessage(OldEdenCore.serverHead+"You have "+ChatColor.BLUE+funds+" Bits"+ChatColor.RESET+".");
-					return true;
+					if (s.hasPermission("eden.eco.check")){
+						int funds = plugin.getConfig().getInt("players."+name+".funds");
+						s.sendMessage(OldEdenCore.serverHead+"You have "+ChatColor.BLUE+funds+" Bits"+ChatColor.RESET+".");
+						return true;
+					} else {
+						s.sendMessage(OldEdenCore.head+ChatColor.RED+"You don't have permission to do that!");
+						return true;
+					}
 				} else {
 					if (args[0].equalsIgnoreCase("admin")){
 						if (args.length==1){
@@ -120,7 +125,7 @@ public class EconomyHandler implements CommandExecutor {
 										s.sendMessage(OldEdenCore.head+"That player doesn't exist.");
 									}
 								} else {
-									s.sendMessage(OldEdenCore.head+"You can't give you you don't have!");
+									s.sendMessage(OldEdenCore.head+"You can't give what you don't have!");
 								}
 							} else {
 								s.sendMessage(OldEdenCore.head+ChatColor.RED+"You do not have permission to pay other people.");
