@@ -18,7 +18,7 @@ public class RegionCommandExecutor implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender s, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("land")){
-			if (args.length==3){
+			if (args.length>2){
 				if (args[0].equalsIgnoreCase("create") && s.hasPermission("eden.land.create")){
 					String regionName = args[1];
 					if (!(plugin.getConfig().contains("regions."+regionName))){
@@ -35,6 +35,20 @@ public class RegionCommandExecutor implements CommandExecutor{
 						return true;
 					} else {
 						s.sendMessage(OldEdenCore.head+"Region already exists!");
+						return true;
+					}
+				} else if (args[0].equalsIgnoreCase("rename") && s.hasPermission("eden.land.rename")){
+					String regionName = args[1];
+					if (plugin.getConfig().contains("regions."+regionName)){
+						String fullname = "";
+						for (int i=1; i<=args.length-1; i++){
+							fullname = fullname+" "+args[i];}
+						plugin.getConfig().set("regions."+regionName+".fullname", "'"+fullname+"'");
+						plugin.saveConfig();
+						s.sendMessage(OldEdenCore.head+"Renamed "+ChatColor.BLUE+regionName+ChatColor.RESET+" to '"+ChatColor.RED+fullname+ChatColor.RESET+"'.");
+						return true;
+					} else {
+						s.sendMessage(OldEdenCore.head+"Couldn't find "+ChatColor.RED+regionName+ChatColor.RESET+"!");
 						return true;
 					}
 				} else {
@@ -102,6 +116,16 @@ public class RegionCommandExecutor implements CommandExecutor{
 						Location newLoc = new Location(plyr.getLocation().getWorld(), locx, locy, locz, yaw, pitch);
 						plyr.teleport(newLoc);
 						s.sendMessage(OldEdenCore.head+"Jumped to "+ChatColor.BLUE+regionName+ChatColor.RESET+".");
+						return true;
+					} else {
+						s.sendMessage(OldEdenCore.head+"Couldn't find "+ChatColor.RED+regionName+ChatColor.RESET+"!");
+						return true;
+					}
+				} else if (args[0].equalsIgnoreCase("delete") && s.hasPermission("eden.land.delete")){
+					String regionName = args[1];
+					if (plugin.getConfig().contains("regions."+regionName)){
+						plugin.getConfig().set("regions."+regionName, null);
+						s.sendMessage(OldEdenCore.head+"Deleted "+ChatColor.RED+regionName+ChatColor.RESET+".");
 						return true;
 					} else {
 						s.sendMessage(OldEdenCore.head+"Couldn't find "+ChatColor.RED+regionName+ChatColor.RESET+"!");

@@ -51,7 +51,9 @@ permissions:
       description: 'Region definition commands.'
       children:
          eden.land.create: op
-         eden.land.home: false
+         eden.land.home: op
          eden.land.sethome: op
          eden.land.set: op
          eden.land.hop: op
+         eden.land.delete: false
+         eden.land.rename: op
