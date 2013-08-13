@@ -13,12 +13,4 @@ public class RegionHandler implements Listener{
 		this.plugin = plugin;
 	}
 	
-	@EventHandler
-	public void onPlayerMove(PlayerMoveEvent evt){
-		Player plyr = evt.getPlayer();
-		Location loc = plyr.getLocation();
-		double locX = loc.getX();
-		double locZ = loc.getZ();
-		
-	}
 }
