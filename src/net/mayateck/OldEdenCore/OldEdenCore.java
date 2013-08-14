@@ -22,7 +22,7 @@ public class OldEdenCore extends JavaPlugin implements Listener{
 			getCommand("land").setExecutor(new RegionCommandExecutor(this));
 			new PlayerListener(this);
 			new MessageBases(this);
-			new RegionHandler(this);
+			new VendorHandler(this);
 		this.getLogger().info("Requesting response from configuration...");
 			this.saveDefaultConfig();
 		this.getLogger().info("Initialization complete.");
