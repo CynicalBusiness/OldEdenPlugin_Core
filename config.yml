@@ -7,3 +7,12 @@ server:
 regions:
 
 players:
+
+npcs:
+   vendor_0:
+      name: 'Template Vendor'
+      msg: 'This is a template and isn't real.'
+      items:
+         - {id: 7, damage: 0, name: 'Plain ol\' bedrock.'}
+         - {id: 5, damage: 1, name: 'Birch Planks.'}
+            
